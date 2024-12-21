@@ -8,7 +8,7 @@ A logging library that combines the simplicity and convenience of [debug](https:
 ## Installation
 
 ```bash
-npm install @uphold/debino pino
+npm install @uphold/debino
 ```
 
 ## Usage
