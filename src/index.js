@@ -30,7 +30,7 @@ const createBindings = (namespace, prefix, suffix) => {
 };
 
 /**
- * Configure debino, allowing to set the root logger.
+ * Configure the root logger.
  */
 
 const setRootLogger = logger => {
