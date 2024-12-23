@@ -10,6 +10,10 @@ import debug from 'debug';
  * Tests for `debino()`.
  */
 
+beforeEach(() => {
+  global[Symbol.for('debino')].loggers.clear();
+});
+
 describe('debino', () => {
   beforeEach(() => {
     delete process.env.LOG_LEVEL;
@@ -102,6 +106,12 @@ describe('setRootLogger', () => {
     );
   });
 
+  it('should throw an error if called after a child logger has been created', () => {
+    debino('foo');
+
+    expect(() => setRootLogger(pino())).toThrow('The root logger must be set before creating any child logger');
+  });
+
   it('should store the logger as the root one', () => {
     const rootLogger = pino({ base: { foo: 'bar' } });
 
@@ -114,19 +124,5 @@ describe('setRootLogger', () => {
     expect(rootLogger.child).toHaveBeenCalledWith({ name: 'foo' }, {});
     expect(logger.bindings().name).toBe('foo');
     expect(logger.bindings().foo).toBe('bar');
-  });
-
-  it('should not overwrite loggers cache if already set', () => {
-    const rootLogger = pino();
-
-    setRootLogger(rootLogger);
-
-    const child1 = debino('foo');
-
-    setRootLogger(rootLogger);
-
-    const child2 = debino('foo');
-
-    expect(child1).toBe(child2);
   });
 });
