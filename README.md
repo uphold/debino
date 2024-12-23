@@ -21,7 +21,7 @@ Considering the following example:
 
 ```js
 // example.js
-import debino from '@uphold/debino';
+import { debino } from '@uphold/debino';
 
 const child1 = debino('foo');
 const child2 = debino('foo:bar');
@@ -74,7 +74,7 @@ You may also set the log level via the `LOG_LEVEL` environment variable. However
 Every call to `debino` creates a child logger based on a root logger. The default root logger is an instance returned by `pino()`, without any options. You may set your own root logger by calling `setRootLogger()`:
 
 ```js
-import debino, { pino, setRootLogger } from '@uphold/debino';
+import { debino, pino, setRootLogger } from '@uphold/debino';
 
 // Call this as soon as possible in your application.
 setRootLogger(pino({ redact: ['foo'] }));

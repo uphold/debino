@@ -4,5 +4,4 @@ declare function debino(namespace: string, options?: { prefix?: string, suffix?:
 
 declare function setRootLogger(logger: Logger)
 
-export default debino;
-export { setRootLogger, pino }
+export { debino, pino, setRootLogger }
