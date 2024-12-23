@@ -9,8 +9,7 @@ const pino = require('pino');
  * Variables
  */
 
-let rootLogger;
-const loggersSymbol = Symbol('debino.loggers');
+const globalSymbol = Symbol.for('debino');
 
 /**
  * Create child logger bindings based on a given `namespace`, `prefix` and `suffix`.
@@ -39,12 +38,11 @@ const setRootLogger = logger => {
     throw new Error('The logger instance must not have a name binding configured');
   }
 
-  // Ensure loggers cache map is set on the root logger.
-  if (!logger[loggersSymbol]) {
-    logger[loggersSymbol] = new Map();
+  if (global[globalSymbol].loggers.size > 0) {
+    throw new Error('The root logger must be set before creating any child logger');
   }
 
-  rootLogger = logger;
+  global[globalSymbol].rootLogger = logger;
 };
 
 /**
@@ -52,7 +50,7 @@ const setRootLogger = logger => {
  */
 
 const debino = (namespace, { prefix = 'sub', suffix = 'component', ...options } = {}) => {
-  const loggers = rootLogger[loggersSymbol];
+  const { loggers, rootLogger } = global[globalSymbol];
   let childLogger = loggers.get(namespace);
 
   // Create the logger for this namespace if it doesn't exist.
@@ -74,10 +72,13 @@ const debino = (namespace, { prefix = 'sub', suffix = 'component', ...options } 
 };
 
 /**
- * Configure the default root logger.
+ * Configure the default root logger and initialize loggers cache.
  */
 
-setRootLogger(pino());
+global[globalSymbol] = {
+  loggers: new Map(),
+  rootLogger: pino()
+};
 
 /**
  * Exports.
