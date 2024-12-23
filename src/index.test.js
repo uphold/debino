@@ -3,9 +3,8 @@
  */
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import debino, { setRootLogger } from '.';
+import { debino, pino, setRootLogger } from '.';
 import debug from 'debug';
-import pino, { symbols } from 'pino';
 
 /**
  * Tests for `debino()`.
@@ -29,7 +28,7 @@ describe('debino', () => {
 
     const logger = debino('biz', { serializers });
 
-    expect(logger[symbols.serializersSym].foo).toBe(serializers.foo);
+    expect(logger[pino.symbols.serializersSym].foo).toBe(serializers.foo);
   });
 
   it('should return the same logger instance for the same namespace', () => {

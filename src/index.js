@@ -83,6 +83,6 @@ setRootLogger(pino());
  * Exports.
  */
 
-module.exports = debino;
+module.exports.debino = debino;
 module.exports.pino = pino;
 module.exports.setRootLogger = setRootLogger;
