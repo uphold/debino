@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.4.0](https://github.com/uphold/debino/releases/tag/v0.4.0) (2024-12-25)
+- Make root logger global so it's shared amongst versions [\#7](https://github.com/uphold/debino/pull/7) ([satazor](https://github.com/satazor))
+
 ## [v0.3.0](https://github.com/uphold/debino/releases/tag/v0.3.0) (2024-12-23)
 - Use named exports for debino [\#6](https://github.com/uphold/debino/pull/6) ([satazor](https://github.com/satazor))
 
