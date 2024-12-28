@@ -50,8 +50,13 @@ const setRootLogger = logger => {
  */
 
 const debino = (namespace, { prefix = 'sub', suffix = 'component', ...options } = {}) => {
-  const { loggers, rootLogger } = global[globalSymbol];
+  let { loggers, rootLogger } = global[globalSymbol];
   let childLogger = loggers.get(namespace);
+
+  // Ensure the root logger is set.
+  if (!rootLogger) {
+    rootLogger = global[globalSymbol].rootLogger = pino();
+  }
 
   // Create the logger for this namespace if it doesn't exist.
   if (!childLogger) {
@@ -77,7 +82,7 @@ const debino = (namespace, { prefix = 'sub', suffix = 'component', ...options } 
 
 global[globalSymbol] = {
   loggers: new Map(),
-  rootLogger: pino()
+  rootLogger: null
 };
 
 /**
