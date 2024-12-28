@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "pino": ">= 9.0.0"
+    "pino": "^9.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -43,7 +43,6 @@
     "eslint-plugin-sort-imports-requires": "^2.0.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "globals": "^15.14.0",
-    "pino": "^9.0.0",
     "prettier": "^3.4.2",
     "release-it": "^17.10.0",
     "vitest": "^2.1.8"
