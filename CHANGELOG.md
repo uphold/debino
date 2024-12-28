@@ -1,5 +1,8 @@
 # Changelog
 
+## [v1.0.0](https://github.com/uphold/debino/releases/tag/v1.0.0) (2024-12-28)
+- Create root logger only if necessary [\#8](https://github.com/uphold/debino/pull/8) ([satazor](https://github.com/satazor))
+
 ## [v0.4.0](https://github.com/uphold/debino/releases/tag/v0.4.0) (2024-12-25)
 - Make root logger global so it's shared amongst versions [\#7](https://github.com/uphold/debino/pull/7) ([satazor](https://github.com/satazor))
 
