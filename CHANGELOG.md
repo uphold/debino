@@ -1,5 +1,8 @@
 # Changelog
 
+## [v1.0.1](https://github.com/uphold/debino/releases/tag/v1.0.1) (2024-12-28)
+- Fix `pino` version in package.json [\#9](https://github.com/uphold/debino/pull/9) ([satazor](https://github.com/satazor))
+
 ## [v1.0.0](https://github.com/uphold/debino/releases/tag/v1.0.0) (2024-12-28)
 - Create root logger only if necessary [\#8](https://github.com/uphold/debino/pull/8) ([satazor](https://github.com/satazor))
 

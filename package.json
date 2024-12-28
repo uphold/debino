@@ -1,6 +1,6 @@
 {
   "name": "@uphold/debino",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A logging library that combines the simplicity and convenience of debug with the power of pino",
   "main": "./src/index.js",
   "types": "./types/index.d.ts",
