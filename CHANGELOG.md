@@ -1,5 +1,8 @@
 # Changelog
 
+## [v1.1.0](https://github.com/uphold/debino/releases/tag/v1.1.0) (2025-01-03)
+- Set the default child logger level to inherit from the root logger [\#10](https://github.com/uphold/debino/pull/10) ([boliveira](https://github.com/boliveira))
+
 ## [v1.0.1](https://github.com/uphold/debino/releases/tag/v1.0.1) (2024-12-28)
 - Fix `pino` version in package.json [\#9](https://github.com/uphold/debino/pull/9) ([satazor](https://github.com/satazor))
 
