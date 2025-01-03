@@ -74,6 +74,15 @@ describe('debino', () => {
     expect(logger.level).toEqual('warn');
   });
 
+  it('should be on the specified level on the root logger if `DEBUG` matches logger name', () => {
+    debug.enable('abc');
+    setRootLogger(pino({ level: 'warn' }));
+
+    const logger = debino('abc');
+
+    expect(logger.level).toEqual('warn');
+  });
+
   it('should support multiple components separated by colons', () => {
     const logger = debino('foo:bar:biz:qux');
     const bindings = logger.bindings();

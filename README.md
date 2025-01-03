@@ -68,10 +68,12 @@ const logger = debino('root')('foo', { level: 'info' });
 ```
 
 You may also set the log level via the `LOG_LEVEL` environment variable. However, the `level` option will always take precedence over it.
+If both `level` and `LOG_LEVEL` are not set, it will use the value from
+the root logger (See the [Root Logger](#root-logger) section below for more information).
 
 ### Root logger
 
-Every call to `debino` creates a child logger based on a root logger. The default root logger is an instance returned by `pino()`, without any options. You may set your own root logger by calling `setRootLogger()`:
+Every call to `debino` creates a child logger based on a root logger. The default root logger is an instance returned by `pino({ level: 'debug' })`. You may set your own root logger by calling `setRootLogger()`:
 
 ```js
 import { debino, pino, setRootLogger } from '@uphold/debino';
