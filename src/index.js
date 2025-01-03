@@ -55,7 +55,7 @@ const debino = (namespace, { prefix = 'sub', suffix = 'component', ...options } 
 
   // Ensure the root logger is set.
   if (!rootLogger) {
-    rootLogger = global[globalSymbol].rootLogger = pino();
+    rootLogger = global[globalSymbol].rootLogger = pino({ level: 'debug' });
   }
 
   // Create the logger for this namespace if it doesn't exist.
@@ -68,7 +68,7 @@ const debino = (namespace, { prefix = 'sub', suffix = 'component', ...options } 
 
   // Set the log level based on the debug namespace.
   if (debug.enabled(namespace)) {
-    childLogger.level = options.level ?? process.env.LOG_LEVEL ?? 'debug';
+    childLogger.level = options.level ?? process.env.LOG_LEVEL ?? rootLogger.level;
   } else {
     childLogger.level = 'silent';
   }
