@@ -76,7 +76,8 @@ the root logger (See the [Root Logger](#root-logger) section below for more info
 Every call to `debino` creates a child logger based on a root logger. The default root logger is an instance returned by `pino({ level: 'debug' })`. You may set your own root logger by calling `setRootLogger()`:
 
 ```js
-import { debino, pino, setRootLogger } from '@uphold/debino';
+import { pino } from 'pino';
+import { debino, setRootLogger } from '@uphold/debino';
 
 // Call this as soon as possible in your application.
 setRootLogger(pino({ redact: ['foo'] }));
