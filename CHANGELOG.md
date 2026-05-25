@@ -1,5 +1,12 @@
 # Changelog
 
+## [v2.0.0](https://github.com/uphold/debino/releases/tag/v2.0.0) (2026-05-25)
+
+- Make pino a peer dependency [\#15](https://github.com/uphold/debino/pull/15) ([satazor](https://github.com/satazor))
+- Fix `npm` release config being in the wrong place [\#14](https://github.com/uphold/debino/pull/14) ([satazor](https://github.com/satazor))
+- Update release action to work with trusted publishers [\#13](https://github.com/uphold/debino/pull/13) ([satazor](https://github.com/satazor))
+- Bump pino major version [\#12](https://github.com/uphold/debino/pull/12) ([satazor](https://github.com/satazor))
+
 ## [v1.1.0](https://github.com/uphold/debino/releases/tag/v1.1.0) (2025-01-03)
 - Set the default child logger level to inherit from the root logger [\#10](https://github.com/uphold/debino/pull/10) ([boliveira](https://github.com/boliveira))
 
