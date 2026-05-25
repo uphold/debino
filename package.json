@@ -27,6 +27,10 @@
   "bugs": {
     "url": "https://github.com/uphold/debino/issues"
   },
+  "npm": {
+    "publish": true,
+    "skipChecks": true
+  },
   "publishConfig": {
     "access": "public"
   },
