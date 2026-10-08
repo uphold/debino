@@ -11,7 +11,7 @@
   "scripts": {
     "release": "release-it",
     "lint": "eslint .",
-    "test": "vitest --coverage"
+    "test": "vitest run --coverage"
   },
   "repository": {
     "type": "git",

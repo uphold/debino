@@ -50,6 +50,21 @@ const setRootLogger = logger => {
  */
 
 const debino = (namespace, { prefix = 'sub', suffix = 'component', ...options } = {}) => {
+  // Fail fast on invalid namespaces: an empty, non-string, or whitespace-only
+  // namespace would otherwise create a confusing child logger with no name.
+  //
+  // A `TypeError` is thrown rather than an assertion error because `node:assert` raises
+  // `AssertionError` (`ERR_ASSERTION`), which is not a `TypeError`. Callers that branch on
+  // `err instanceof TypeError` to distinguish "you passed the wrong type" from other failures
+  // misclassified every invalid-namespace rejection.
+  if (typeof namespace !== 'string') {
+    throw new TypeError('Expected `namespace` to be a string');
+  }
+
+  if (namespace.trim().length === 0) {
+    throw new TypeError('Expected `namespace` to be a non-empty string');
+  }
+
   let { loggers, rootLogger } = global[globalSymbol];
   let childLogger = loggers.get(namespace);
 
