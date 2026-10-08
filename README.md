@@ -64,7 +64,7 @@ const child = debino('foo', { redact: ['foo']});
 The `level` pino option is respected if the logger output is active.
 
 ```js
-const logger = debino('root')('foo', { level: 'info' });
+const logger = debino('foo', { level: 'info' });
 ```
 
 You may also set the log level via the `LOG_LEVEL` environment variable. However, the `level` option will always take precedence over it.
